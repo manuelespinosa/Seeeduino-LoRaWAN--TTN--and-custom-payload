@@ -1,6 +1,5 @@
 #include <Arduino.h> 
 #include <LoRaWan.h>
-#include <SoftwareSerial.h>
 #include <TinyGPSPlus.h>
 #include "ArduinoLowPower.h"
 #include <RTCZero.h>
@@ -17,15 +16,16 @@
 #define SLEEP_TIME_MILLIS 10*1000
 #define DELAY_TIME_MILLIS 100
 
-#define GPS_DATA_INTERVAL_S 15*60 
-#define BATTERY_DATA_INTERVAL_S 10*60 
+#define GPS_DATA_INTERVAL_S 60 //15*60 
+#define BATTERY_DATA_INTERVAL_S 30 //10*60 
 
-//#define USBDEBUG // While not commented, the device will not enter in sleep mode, and Serial will be available
+#define USBDEBUG // While not commented, the device will not enter in sleep mode, and Serial will be available
 
 #define GPSRx 8
 #define GPSEnable 9
+#define gpsSerial Serial
+
 RTCZero rtc;
-SoftwareSerial gpsSerial(GPSRx, -1); //Rx Tx
 TinyGPSPlus gps;
 struct tinyFrame frame;
 
@@ -50,10 +50,8 @@ void displayInfo(void);
 
 bool loraTransfer(uint8_t *buff, uint8_t size, uint8_t fport);
 
-
 void setup()
-{
-
+{   
     SerialUSB.begin(115200);
     gpsSerial.begin(9600);
 
@@ -137,12 +135,12 @@ void setup_rtc(void){
 void handleGPS(void){
     if (rtc.getEpoch() - LAST_GPS_DATA < GPS_DATA_INTERVAL_S){
         digitalWrite(GPSEnable, LOW);
-        return; // Si se han mandado datos hace menos de 15 min nos vemos
-    } 
-
+        return; // Si se han mandado datos hace menos de 15 min, abortamos
+    }
     SerialUSB.println("GPS handler running");
     digitalWrite(GPSEnable, HIGH);
     delay(1500);
+    gpsSerial.available();
     while (gpsSerial.available() > 0){
         if(gps.encode(gpsSerial.read())){
             displayInfo();
