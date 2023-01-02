@@ -144,11 +144,13 @@ void handleGPS(void){
     while (gpsSerial.available() > 0){
         if(gps.encode(gpsSerial.read())){
             displayInfo();
+            SerialUSB.print("Satellites: ");SerialUSB.println(gps.satellites.value());
             if (gps.location.isValid()){
                 frame.clear();
                 frame.append_int32_t(gps.location.lat()*100000);
                 frame.append_int32_t(gps.location.lng()*100000);
                 frame.append_int16_t(gps.altitude.meters());
+                frame.append_uint8_t(gps.satellites.value());
                 if(loraTransfer(frame.buffer, frame.size(), GPSDATA_PORT)){
                     LAST_GPS_DATA = rtc.getEpoch();
                 }
