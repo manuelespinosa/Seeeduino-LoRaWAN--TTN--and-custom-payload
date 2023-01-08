@@ -1,4 +1,4 @@
-# Seeeduino-LoRaWAN--TTN--and-custom-payload
+# Seeeduino-LoRaWAN (TTN) with custom payload
 
 Simple sketch for sending data with LoRaWAN (TTN was used) with a Seeeduino LoRaWAN board.
 
