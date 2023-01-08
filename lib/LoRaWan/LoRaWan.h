@@ -271,7 +271,7 @@ class LoRaWanClass
          *  
          *  \return Return Receive data number
          */
-        short receivePacket(char *buffer, short length, short *rssi);
+        short receivePacket(char *buffer, short length, short *rssi, short *fport);
         
         /**
          *  \brief Transfer the proprietary data
