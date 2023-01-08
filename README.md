@@ -97,8 +97,19 @@ function decodeDownlink(input) {
 }
 ```
 
-Fport 100 is used for changing the GPS and Battery sending interval. First 2 bytes (0 and 1) is used for GPS Interval, the following 2 bytes (2 and 3) is used to interpret the Battery Interval.
+fPort 100 is used for changing the GPS and Battery sending interval:
+First 2 bytes (0 and 1) is used for GPS Interval, the following 2 bytes (2 and 3) is used to interpret the Battery Interval.
 
+After saving the downlink encoder you can enqueue downlink the message to change the sending interval. Go to messaging of the device, select downlink, specify fPort 100 and json payload. Schedule a json payload with the following template template:
+```json
+{
+  "GPSInterval": 1800, 
+  "BatteryInterval": 1800 
+}
+```
+Then, press the button to schedule the downlink message. It should looks like the following image:
+
+![imagen](https://user-images.githubusercontent.com/48633457/211188156-ceafac23-b636-4b82-a866-06d4e99598a1.png)
 
 
 
