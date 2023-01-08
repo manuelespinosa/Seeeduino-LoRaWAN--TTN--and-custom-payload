@@ -109,9 +109,27 @@ After saving the downlink encoder you can enqueue downlink the message to change
 ```
 Then, press the button to schedule the downlink message. It should looks like the following image:
 
-![imagen](https://user-images.githubusercontent.com/48633457/211188156-ceafac23-b636-4b82-a866-06d4e99598a1.png)
+<details>
+  <summary>Click to show an image of downlink message ready to schedule</summary>
+  
+  ![imagen](https://user-images.githubusercontent.com/48633457/211188156-ceafac23-b636-4b82-a866-06d4e99598a1.png)
+
+</details>
 
 
+### Seeduino Response to the downlink message:
+```console
++MSGHEX: PORT: 100; RX: "07080708"
++MSGHEX: RXWIN1, RSSI -70, SNR 5.5
++MSGHEX: Done
+Length is: 4
+RSSI is: -70
+fPort is: 100
+Data is: 0x7 0x8 0x7 0x8
+fport is Sample Rate Configurator
+Current GPS and Battery Interval (s): 300 30
+New GPS and Battery Interval (s): 1800 1800
+``` 
 
 ## Seeeduino LoRaWAN issue:
 ### Battery Voltage can't not be read properly when battery is not charging.
