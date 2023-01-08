@@ -135,8 +135,8 @@ New GPS and Battery Interval (s): 1800 1800
 ### Battery Voltage can't not be read properly when battery is not charging.
 This is due to missing resistor (R56) on the board, according to schematics:
 
-![imagen](https://user-images.githubusercontent.com/48633457/210239672-7bc01309-a427-4e3f-9cc6-c7084abe6b41.png)
+<img src="https://user-images.githubusercontent.com/48633457/210239672-7bc01309-a427-4e3f-9cc6-c7084abe6b41.png" width="500">
 
 If your Battery voltage readings seems not working properly, check for R56 and short circuit. Check the following image to fix it:
 
-![imagen](https://user-images.githubusercontent.com/48633457/210240174-d1c6c4a5-182f-4a22-853e-683f2c5e91b8.png)
+<img src="https://user-images.githubusercontent.com/48633457/210240174-d1c6c4a5-182f-4a22-853e-683f2c5e91b8.png" width="500" height="500">
