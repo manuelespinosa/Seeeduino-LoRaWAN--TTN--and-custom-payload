@@ -6,7 +6,7 @@ This repo send Battery Voltage and Location at almost regular intervals (time dr
 
 ![imagen](https://user-images.githubusercontent.com/48633457/210238046-fb00c1d0-6098-40af-b9d8-d370ffdc34cc.png)
 
-This repo used an external GPS module, but compatible with Seeeduino LoRaWAN with GPS version, except for GPSEnable pin which is routed to an external pin instead of GPS footprint.
+This repo use an external GPS module, but compatible with Seeeduino LoRaWAN with GPS version, except for GPSEnable pin which is routed to an external pin instead of GPS footprint.
 
 
 ## Steps
